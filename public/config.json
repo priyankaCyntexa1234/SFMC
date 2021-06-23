@@ -18,7 +18,7 @@
            "inArguments":[
 				{
                     "emailAddress": "{{Contact.Attribute.CustomActivity.EmailAddress}}"
-                }									
+                    }									
 			],
           "outArguments": [],
           "url": "https://<your-domain-here>/journeybuilder/execute",
@@ -31,24 +31,24 @@
         }
     },
     "configurationArguments": {
-      "applicationExtensionKey": "__application_key_from_appcenter_here__",
+      "applicationExtensionKey": "b45524f3-304b-40f0-8a86-b1a6a248440d",
       "save": {
-        "url": "https://<your-domain-here>/journeybuilder/save",
+        "url": "https:/mc6vgk-sxj9p08pqwxqz9hw9-4my/journeybuilder/save",
           "verb": "POST",
         "useJwt": true
        },
        "publish": {
-        "url": "https://<your-domain-here>/journeybuilder/publish",
+        "url": "https://mc6vgk-sxj9p08pqwxqz9hw9-4my/journeybuilder/publish",
            "verb": "POST",
         "useJwt": true
        },
       "stop": {
-        "url": "https://<your-domain-here>/journeybuilder/stop",
+        "url": "https://mc6vgk-sxj9p08pqwxqz9hw9-4my/journeybuilder/stop",
            "verb": "POST",
         "useJwt": true
       },
       "validate": {
-        "url": "https://<your-domain-here>/journeybuilder/validate",
+        "url": "https://mc6vgk-sxj9p08pqwxqz9hw9-4my/journeybuilder/validate",
         "verb": "POST",
         "useJwt": true
       }
