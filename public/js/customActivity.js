@@ -8,7 +8,8 @@ define([
     var connection = new Postmonger.Session();
     var authTokens = {};
     var payload = {};
-    $(window).ready(onRender);
+    //$(window).ready(onRender);
+    window.addEventListener('load', onRender, false);
 
     connection.on('initActivity', initialize);
     connection.on('requestedTokens', onGetTokens);
