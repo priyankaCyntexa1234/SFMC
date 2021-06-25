@@ -15,12 +15,7 @@
     },
     "arguments": {
         "execute": {
-           "inArguments":[
-				{
-                    "emailAddress": "{{Contact.Attribute.CustomActivity.EmailAddress}}"
-                }									
-			],
-          "outArguments": [],
+          
           "url": "https://custom-journey-activity.herokuapp.com/journeybuilder/execute",
            "verb": "POST",
             "body": "",
