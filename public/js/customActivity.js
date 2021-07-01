@@ -23,13 +23,12 @@ define([
         { "label": "Final Step", "key": "step4" }
     ];
  
-    
     function next() {
-        if (steps.key === 'step4') {
-            connection.on('clickedNext', save);
-        } else {
+        //if (steps.key === 'step4') {
+          //  connection.on('clickedNext', save);
+        //} else {
             connection.trigger('nextStep');
-        }
+        //}
     }
     
     function onRender() {
