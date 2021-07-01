@@ -15,6 +15,12 @@ define([
     connection.on('requestedEndpoints', onGetEndpoints);
 
     connection.on('clickedNext', save);
+    
+    var steps = [ // initialize to the same value as what's set in config.json for consistency
+        { "label": "Create SMS Message", "key": "step1" },
+        { "label": "Second Step", "key": "step2" }
+    ];
+ 
    
     function onRender() {
         // JB will respond the first time 'ready' is called with 'initActivity'
