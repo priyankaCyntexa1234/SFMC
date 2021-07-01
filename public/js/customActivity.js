@@ -83,19 +83,28 @@ define([
     }
 
     function save() {
-        var postcardURLValue = $('#postcard-url').val();
-        var postcardTextValue = $('#postcard-text').val();
+
+        var accountSid = $('#accountSID').val();
+        var authToken = $('#authToken').val();
+        var messagingService = $('#messagingService').val();
+        var body = $('#messageBody').val();
+        var to='{{Contact.Attribute.TwilioCustomActivity.Phone}}';
+        console.log('To:'+to);
 
         payload['arguments'].execute.inArguments = [{
-            "tokens": authTokens,
-            "emailAddress": ""
+            "accountSid": accountSid,
+            "authToken": authToken,
+            "messagingService": messagingService,
+            "body": body,
+            "to": "" //<----This should map to your data extension name and phone number column
         }];
-        
+
         payload['metaData'].isConfigured = true;
 
-        console.log(payload);
+        console.log("Payload on SAVE function: "+JSON.stringify(payload));
         connection.trigger('updateActivity', payload);
-    }
+
+    } 
 
 
 });
