@@ -14,7 +14,7 @@ define([
     connection.on('requestedTokens', onGetTokens);
     connection.on('requestedEndpoints', onGetEndpoints);
 
-    connection.on('clickedNext', save);
+    //connection.on('clickedNext', save);
     
     var steps = [ // initialize to the same value as what's set in config.json for consistency
         { "label": "First Step", "key": "step1" },
