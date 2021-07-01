@@ -88,7 +88,7 @@ define([
         var authToken = $('#authToken').val();
         var messagingService = $('#messagingService').val();
         var body = $('#messageBody').val();
-        var to='{{Contact.Attribute.TwilioCustomActivity.Phone}}';
+        //var to='{{Contact.Attribute.TwilioCustomActivity.Phone}}';
         console.log('To:'+to);
 
         payload['arguments'].execute.inArguments = [{
