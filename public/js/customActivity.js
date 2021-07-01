@@ -27,7 +27,7 @@ define([
     function onclickedNext() {
         if (steps.key === 'step4'
         ) {
-            save();
+            connection.on('clickedNext', save);
         } else {
             connection.trigger('nextStep');
         }
