@@ -25,7 +25,7 @@ define([
  
     
     function onClickedNext () {
-        if (currentStep.key === 'step4'
+        if (steps.key === 'step4'
         ) {
             save();
         } else {
