@@ -14,7 +14,7 @@ define([
     connection.on('requestedTokens', onGetTokens);
     connection.on('requestedEndpoints', onGetEndpoints);
 
-    //connection.on('clickedNext', save);
+    connection.on('clickedNext', next());
     
     var steps = [ // initialize to the same value as what's set in config.json for consistency
         { "label": "First Step", "key": "step1" },
@@ -24,9 +24,8 @@ define([
     ];
  
     
-    function onclickedNext() {
-        if (steps.key === 'step4'
-        ) {
+    function next() {
+        if (steps.key === 'step4') {
             connection.on('clickedNext', save);
         } else {
             connection.trigger('nextStep');
