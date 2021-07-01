@@ -24,7 +24,7 @@ define([
     ];
  
     
-    function clickedNext() {
+    function onclickedNext() {
         if (currentStep.key === 'step4'
         ) {
             save();
