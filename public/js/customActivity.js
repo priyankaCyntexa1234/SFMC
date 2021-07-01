@@ -17,7 +17,7 @@ define([
     connection.on('clickedNext', save);
     
     var steps = [ // initialize to the same value as what's set in config.json for consistency
-        { "label": "Create SMS Message", "key": "step1" },
+        { "label": "First Step", "key": "step1" },
         { "label": "Second Step", "key": "step2" }
     ];
  
