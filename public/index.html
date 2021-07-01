@@ -28,22 +28,40 @@
 
 <body>
     <div id="step1" class="step">
-    <h2>Twilio SMS message</h2>
-    <hr>
-    <div class="form-group">
-        <div><label for="messageBody">Step1:</label></div>
-        <input class="form-control" id="firststep" type="text" name="firststep" value="">        
-    </div>           
+        <h2>Message Body</h2>
+        <hr>
+        <div class="form-group">
+            <div><label for="messageBody">Create message body:</label></div>
+            <input class="form-control" id="messageBody" type="text" name="messageBody" value="">        
+        </div> 
     </div>
     
     <div id="step2" class="step">
-    <h2>Twilio SMS message</h2>
+    <h2>From Number</h2>
     <hr>
     <div class="form-group">
-        <div><label for="messageBody">Step2:</label></div>
-        <input class="form-control" id="secondstep" type="text" name="secondstep" value="">        
-    </div>           
+        <div><label for="messagingService">From Number:</label></div>
+        <input class="form-control" id="messagingService" type="text" name="messagingService" value="">
+    </div>  
     </div>
+    
+    <div id="step3" class="step">
+    <h2>Account SID</h2>
+    <hr>
+    <div class="form-group">
+        <div><label for="accountSID">Account SID:</label></div>
+        <input class="form-control" id="accountSID" type="text" name="accountSID" value="">
+        </div>
+    </div>
+    
+    <div id="step4" class="step">
+    <h2>Auth Token</h2>
+    <hr>
+    <div class="form-group">
+        <div><label for="authToken">Auth Token:</label></div>
+        <input class="form-control" id="authToken" type="text" name="authToken" value="">
+    </div>
+    
 </body>
 
 </html>
