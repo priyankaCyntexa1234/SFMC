@@ -29,7 +29,7 @@ define([
     var currentStep = steps[0].key;
     connection.on('clickedNext', onClickedNext);
     connection.on('clickedBack', onClickedBack);
-    //connection.on('gotoStep', onGotoStep);
+    connection.on('gotoStep', onGotoStep);
 
     
     
@@ -56,6 +56,67 @@ define([
     function onClickedBack () 
     {
         connection.trigger('prevStep');
+    }
+    
+     function showStep(step, stepIndex)
+     {
+        if (stepIndex && !step) 
+        {
+            step = steps[stepIndex-1];
+        }
+
+        currentStep = step;
+
+        $('.step').hide();
+
+        switch(currentStep.key) {
+            case 'step1':
+                $('#step1').show();
+                connection.trigger('updateButton', {
+                    button: 'next',
+                    enabled: Boolean(getMessage())
+                });
+                connection.trigger('updateButton', {
+                    button: 'back',
+                    visible: false
+                });
+                break;
+            case 'step2':
+                $('#step2').show();
+                connection.trigger('updateButton', {
+                    button: 'back',
+                    visible: true
+                });
+                connection.trigger('updateButton', {
+                    button: 'next',
+                    text: 'next',
+                    visible: true
+                });
+                break;
+            case 'step3':
+                $('#step3').show();
+                connection.trigger('updateButton', {
+                     button: 'back',
+                     visible: true
+                });
+                if (lastStepEnabled) {
+                    connection.trigger('updateButton', {
+                        button: 'next',
+                        text: 'next',
+                        visible: true
+                    });
+                } else {
+                    connection.trigger('updateButton', {
+                        button: 'next',
+                        text: 'done',
+                        visible: true
+                    });
+                }
+                break;
+            case 'step4':
+                $('#step4').show();
+                break;
+        }
     }
 
 
