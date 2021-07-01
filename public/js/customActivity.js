@@ -8,28 +8,30 @@ define([
     var connection = new Postmonger.Session();
     var authTokens = {};
     var payload = {};
+    
+    var lastStepEnabled = false;
+    
     $(window).ready(onRender);
 
     connection.on('initActivity', initialize);
     connection.on('requestedTokens', onGetTokens);
     connection.on('requestedEndpoints', onGetEndpoints);
 
-    connection.on('clickedNext', next());
+    //connection.on('clickedNext', next());
     
-    var step = [ // initialize to the same value as what's set in config.json for consistency
+    var steps = [ // initialize to the same value as what's set in config.json for consistency
         { "label": "First Step", "key": "step1" },
         { "label": "Second Step", "key": "step2" },
         { "label": "Third Step", "key": "step3" },
         { "label": "Final Step", "key": "step4" }
     ];
- 
-    function next() {
-        //if (steps.key === 'step4') {
-          //  connection.on('clickedNext', save);
-        //} else {
-            connection.trigger('nextStep');
-        //}
-    }
+    
+    var currentStep = steps[0].key;
+    connection.on('clickedNext', onClickedNext);
+    connection.on('clickedBack', onClickedBack);
+    //connection.on('gotoStep', onGotoStep);
+
+    
     
     function onRender() {
         // JB will respond the first time 'ready' is called with 'initActivity'
@@ -39,6 +41,20 @@ define([
         connection.trigger('requestEndpoints');
 
     }
+    
+    function onClickedNext () {
+        if (
+            (currentStep.key === 'step4') {
+            save();
+        } else {
+            connection.trigger('nextStep');
+        }
+    }
+
+    function onClickedBack () {
+        connection.trigger('prevStep');
+    }
+
 
     function initialize(data) {
         console.log(data);
