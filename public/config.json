@@ -67,8 +67,7 @@
 		},
 		{
 			"label": "Final Step",
-			"key": "step4",
-			"active": false
+			"key": "step4"
 		}     
 		     
 	],
