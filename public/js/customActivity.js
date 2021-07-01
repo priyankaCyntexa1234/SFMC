@@ -77,7 +77,7 @@ define([
                 $('#step1').show();
                 connection.trigger('updateButton', {
                     button: 'next',
-                    enabled: Boolean(getMessage())
+                    visible: false
                 });
                 connection.trigger('updateButton', {
                     button: 'back',
