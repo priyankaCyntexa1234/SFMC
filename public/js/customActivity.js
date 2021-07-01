@@ -58,10 +58,13 @@ define([
         connection.trigger('prevStep');
     }
     
-     function showStep(step, stepIndex)
-     {
-        if (stepIndex && !step) 
-        {
+     function onGotoStep (step) {
+        showStep(step);
+        connection.trigger('ready');
+    }
+
+    function showStep(step, stepIndex) {
+        if (stepIndex && !step) {
             step = steps[stepIndex-1];
         }
 
@@ -118,7 +121,6 @@ define([
                 break;
         }
     }
-
 
     function initialize(data) {
         console.log(data);
