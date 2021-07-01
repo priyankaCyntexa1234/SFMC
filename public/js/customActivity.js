@@ -18,10 +18,21 @@ define([
     
     var steps = [ // initialize to the same value as what's set in config.json for consistency
         { "label": "First Step", "key": "step1" },
-        { "label": "Second Step", "key": "step2" }
+        { "label": "Second Step", "key": "step2" },
+        { "label": "Third Step", "key": "step3" },
+        { "label": "Final Step", "key": "step4" }
     ];
  
-   
+    
+    function onClickedNext () {
+        if (currentStep.key === 'step4'
+        ) {
+            save();
+        } else {
+            connection.trigger('nextStep');
+        }
+    }
+    
     function onRender() {
         // JB will respond the first time 'ready' is called with 'initActivity'
         connection.trigger('ready');
