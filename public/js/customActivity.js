@@ -43,15 +43,18 @@ define([
     }
     
     function onClickedNext () {
-        if (
-            (currentStep.key === 'step4') {
+        if (currentStep.key === 'step4') 
+        {
             save();
-        } else {
+        }
+        else
+        {
             connection.trigger('nextStep');
         }
     }
 
-    function onClickedBack () {
+    function onClickedBack () 
+    {
         connection.trigger('prevStep');
     }
 
