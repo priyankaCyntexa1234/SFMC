@@ -54,21 +54,12 @@
       }
     },
      "wizardSteps": [{
-			"label": "Configure Activity",
+			"label": "First Step",
 			"key": "step1"
 		},
 		{
-			"label": "Step 2",
+			"label": "Second Step",
 			"key": "step2"
-		},
-		{
-			"label": "Step 3",
-			"key": "step3"
-		},
-		{
-			"label": "Step 4",
-			"key": "step4",
-			"active": false
 		}
 	],
     "userInterfaces": {
