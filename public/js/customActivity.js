@@ -25,7 +25,7 @@ define([
  
     
     function onClickedNext () {
-        if (steps.key === 'step4'
+        if (currentStep.key === 'step4'
         ) {
             save();
         } else {
@@ -89,7 +89,7 @@ define([
         var messagingService = $('#messagingService').val();
         var body = $('#messageBody').val();
         //var to='{{Contact.Attribute.TwilioCustomActivity.Phone}}';
-        console.log('To:'+to);
+        //console.log('To:'+to);
 
         payload['arguments'].execute.inArguments = [{
             "accountSid": accountSid,
