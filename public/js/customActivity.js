@@ -16,7 +16,7 @@ define([
 
     connection.on('clickedNext', next());
     
-    var steps = [ // initialize to the same value as what's set in config.json for consistency
+    var step = [ // initialize to the same value as what's set in config.json for consistency
         { "label": "First Step", "key": "step1" },
         { "label": "Second Step", "key": "step2" },
         { "label": "Third Step", "key": "step3" },
