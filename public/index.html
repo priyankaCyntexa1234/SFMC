@@ -1,68 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
-<head>
-    <title></title>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Custom Journey Builder Activity</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/require.js"></script>
-    <script type="text/javascript">
-        (function () {
-            var config = {
-                baseUrl: 'js'
-            };
 
-            var dependencies = [
-                'customActivity'
-            ];
+    <body>
+        <script src="../js/jsbezier.js"></script>
+        <script>
 
-            require(config, dependencies);
-        })();
-    </script>
-</head>
+            var x1 = 300, x2 = 300, y1 = 50, y2 = 450,
+                curve = [
+                    { x:60, y:400 },
+                    { x:150, y:80 },
+                    { x:500, y:400 },
+                    { x:700, y:200 }
+                ];
 
-<body>
-    <div id="step1" class="step">
-        <h2>Message Body</h2>
-        <hr>
-        <div class="form-group">
-            <div><label for="messageBody">Create message body:</label></div>
-            <input class="form-control" id="messageBody" type="text" name="messageBody" value="">        
-        </div> 
-    </div>
-    
-    <div id="step2" class="step">
-    <h2>From Number</h2>
-    <hr>
-    <div class="form-group">
-        <div><label for="messagingService">From Number:</label></div>
-        <input class="form-control" id="messagingService" type="text" name="messagingService" value="">
-    </div>  
-    </div>
-    
-    <div id="step3" class="step">
-    <h2>Account SID</h2>
-    <hr>
-    <div class="form-group">
-        <div><label for="accountSID">Account SID:</label></div>
-            <input class="form-control" id="accountSID" type="text" name="accountSID" value="">
-        </div>
-    </div>
-    
-    <div id="step4" class="step">
-        <h2>Auth Token</h2>
-        <hr>
-            <div class="form-group">
-                <div><label for="authToken">Auth Token:</label></div>
-                <input class="form-control" id="authToken" type="text" name="authToken" value="">
-            </div>
-    </div>    
-    
-</body>
+            console.log("1 - line");
+            jsBezier.lineIntersection(x1, y1, x2, y2, curve).forEach(function(i) { console.log(i[0], i[1])});
+            console.log("1 - box");
+            jsBezier.boxIntersection(x1, y1, 100, 400, curve).forEach(function(i) { console.log(i[0], i[1])});
+            console.log("1 - bounding box");
+            jsBezier.boundingBoxIntersection({x:x1, y:y1, w:100, h:400}, curve).forEach(function(i) { console.log(i[0], i[1])});
+
+
+            var box2 = [-29,11, 120, 60],
+                curve2 = [
+                    { x:0,y:0}, {x:-10,y:150}, {x:169,y:2}, {x:159,y:152}
+                ];
+
+            console.log("2");
+            jsBezier.lineIntersection(box2[0],box2[1],box2[0] + box2[2], box2[1], curve2).forEach(function(i) { console.log(i[0], i[1])});
+
+
+            var curve3 = [
+                {x:281,y:89},
+                { x:209,y:743},
+                {x:693,y:258},
+                {x:686,y:703}
+            ]
+
+            console.log("3");
+            jsBezier.lineIntersection(88, 155, 486, 155, curve3).forEach(function(i) { console.log(i[0], i[1])});
+
+        </script>
+    </body>
 
 </html>
