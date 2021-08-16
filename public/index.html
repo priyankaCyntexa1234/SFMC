@@ -375,7 +375,6 @@
         var element=document.getElementById('lineDiv').style.cssText=`
                         opacity: 0.9;
                         margin: 0px;
-                        height:  2px;
                         background-color:#387F9D;
                         left: ${cx}px;
                         top: ${cy}px;
@@ -386,12 +385,11 @@
                         -ms-transform: rotate(${angle}deg);
                          position: absolute;
                          background: paint(lines)
-                         --curved-lineHeight:30;
+                         --curved-lineHeight:20;
                          --curved-lineWidth:5;
-                         --curved-lineSpread:100;   
-
+                         --curved-lineSpread:20;   
                         `
-                ;
+                    ;
     }
 
 </script>
