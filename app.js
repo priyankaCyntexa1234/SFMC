@@ -10,6 +10,22 @@ var request     = require('request');
 var routes      = require('./routes');
 var activity    = require('./routes/activity');
 
+const axios = require('axios');
+
+const slackToken = 'xoxb-394749035760-2453462551602-irovJRcw9gv2b6KmtWITzdR1';
+
+run().catch(err => console.log(err));
+
+async function run() {
+  const url = 'https://slack.com/api/chat.postMessage';
+  const res = await axios.post(url, {
+    channel: '#test',
+    text: 'Hello, World!'
+  }, { headers: { authorization: `Bearer ${slackToken}` } });
+
+  console.log('Done', res.data);
+}
+
 var app = express();
 
 // Configure Express
