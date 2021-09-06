@@ -1,399 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.13.7/styles/salesforce-lightning-design-system.min.css" integrity="sha512-UV/bdfkf/vUvwZ6/aVq8zas293BNyu43i68QdurkfUmSjGRiCxKISDe29R6VPB3YKfeA/lCjGyfXLBIzlpTg5A==" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.13.7/styles/salesforce-lightning-design-system.sanitized.min.css" integrity="sha512-O9RC97AHIeSWK6mAA/b1GBPzrBsmNBT8nN2yz6vghHn0Eatt4P7ilv4H+uO5mp7WIDh9sKbUoKSg3pGsPM8ShA==" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.13.7/styles/salesforce-lightning-design-system_touch.min.css" integrity="sha512-5j2QXzkr/ZIuvsLKYgRr8HEfAx5D+Mg0dFDCSGwKR2GKcdZbJSynKdirYGVGRVWLz9ryxV4/0kfoCGffJD3fQw==" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    
-    <!--JavaScript Bundal-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="js/jquery.easing.min.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <style>
-        .mainBox{
-            width:10em;
-            background-color: #387F9D;
-            border-color:#387F9D;
-            position: absolute;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            -o-user-select: none;
-            user-select: none;
-            user-select: none;
-            -webkit-touch-callout: none;
-            opacity:0.9;
+    <meta charset="utf-8">
+    <title>Custom Journey Builder Activity</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/require.js"></script>
+    <script type="text/javascript">
+        (function() {
+            var config = {
+                baseUrl: 'js'
+            };
+            var dependencies = [
+                'customActivity'
+            ];
+            require(config, dependencies);
+        })();
+    </script>
+    <!--Styles-->
+    <style type="text/css">
+        #step1 {
+            display: block;
         }
-
-        .headerOfQuaryBox
-        {
-            text-align: left;
-            font-size:75%;
-            border-bottom: 0;
-            margin:auto;
-            color:white;
-            font-weight:bold;
-            font-family: Calibr;
-            word-wrap: break-word;
-        }
-        .dataBox{
-            margin:1px;
-            background-color: #F1F1F1;
-            padding:0;
-            font-size: 70%;
-            max-height:250px;
-        }
-        .data{
-            color:#686363;
-            font-size: 80%;
-            cursor: pointer;
-            border-bottom: 1px solid #ddc5c5;
-            font-family: Calibr;
-            padding:2%;
-        }
-
-        .quaryBox{
-          color:#686363!important;  
-          text-align:center;
-          max-height:150px;
-          margin:1px;
-          background-color: #F1F1F1;
-          padding:0;
-          font-size: 70%;
-          
-          
-        }
-
-        .dataFields-area-set{
-            padding-left: 0;
-            
-        }    
-
-        .buttonStyle{
-            background-color: transparent;
-            height:24px;
-            width:24px;
-            float: right;
-            border:none;
-        }
-
-        .dataExtensionNameStyle{
-            display: inline-block;
-            width: 180px;
-            white-space: nowrap;
-            overflow: hidden !important;
-            text-overflow: ellipsis;
-        }
-        .mainBox:active{
-            width:10em;
-            background-color: #353535;
-            border-color:#2e2e2e;
-            position: absolute;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            -o-user-select: none;
-            user-select: none;
-            user-select: none;
-            -webkit-touch-callout: none;
-            opacity:0.9;
-          }
-
-        .headerOfQuaryBox:hover
-        {
-            cursor: move;
-        }
-
-        .relationshipgrid {
-                background-image:
-                repeating-linear-gradient(rgb(224, 233, 235) 0 1px, transparent 1px 100%),
-                repeating-linear-gradient(90deg, rgb(224, 233, 235) 0 1px, transparent 1px 100%);
-                background-size: 10px 10px;
-            }
-
     </style>
-
 </head>
-<body>
-<div class="slds-scrollable relationshipgrid" id="scrollingDiv" style="left:200px;width:800px;height:500px;background-color:white;position:absolute;">
-
-<div>
-<div class="slds-card mainBox mydiv box1"  onmousedown="onAdd(event)"  id="dataextension1*id">
-   <div class="headerOfQuaryBox" data-original-title="" title="">
-        <table>
-            <tbody>
-                <th>
-                    <td style="width:8em;padding-left:3px;" class="dataExtensionNameStyle"><span  title="_MobileLineAddress">One</span></td>
-                    <td width="20%">
-                        <button class="buttonStyle" onclick="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
-                              </svg>    
-                        </button>
-                    </td>
-                    <td width="20%">
-                        <button class="buttonStyle" onclick="onAdd(event)">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                                <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
-                              </svg>
-                              
-                        </button>
-                    </td>
-                </th>
-            </tbody>
-        </table>
-    </div>
-
-
-   <div class="slds-card__body" style="margin-top: 0px;margin-bottom: 0px;">
-   <div class="dataBox slds-box slds-scrollable" onclick="OpenSelectField(this.id)" id="_MobileLineAddressOpenSelectField">
-        <ul class="dataFields-area-set">
-            <li class="data" title="AddressId" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>AddressId</span></li>
-            <li class="data" title="CreatedBy" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>CreatedBy</span></li>
-            <li class="data" title="CreatedDate" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>CreatedDate</span></li>
-            <li class="data" title="IsActive" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>IsActive</span></li>
-            <li class="data" title="AddressId" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>AddressId</span></li>
-            <li class="data" title="CreatedBy" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>CreatedBy</span></li>
-            <li class="data" title="CreatedDate" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>CreatedDate</span></li>
-            <li class="data" title="IsActive" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>IsActive</span></li>
-            <li class="data" title="AddressId" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>AddressId</span></li>
-            <li class="data" title="CreatedBy" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>CreatedBy</span></li>
-            <li class="data" title="CreatedDate" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>CreatedDate</span></li>
-            <li class="data" title="IsActive" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>IsActive</span></li>
-            <li class="data" title="AddressId" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>AddressId</span></li>
-            <li class="data" title="CreatedBy" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>CreatedBy</span></li>
-            <li class="data" title="CreatedDate" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>CreatedDate</span></li>
-            <li class="data" title="IsActive" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>IsActive</span></li>
-            <li class="data" title="AddressId" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>AddressId</span></li>
-            <li class="data" title="CreatedBy" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>CreatedBy</span></li>
-            <li class="data" title="CreatedDate" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>CreatedDate</span></li>
-            <li class="data" title="IsActive" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>IsActive</span></li>
-            <li class="data" title="AddressId" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>AddressId</span></li>
-            <li class="data" title="CreatedBy" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>CreatedBy</span></li>
-            <li class="data" title="CreatedDate" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>CreatedDate</span></li>
-            <li class="data" title="IsActive" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>IsActive</span></li>
-            <li class="data" title="AddressId" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>AddressId</span></li>
-            
-        </ul>
-    </div>
-    
-     <!--Where Clause-->
-    <div onclick="OpenWhere(this.id)" id="_MobileLineAddressOpenWhere" class="headerOfQuaryBox" data-original-title="" title="">
-        <div style="text-align:center;">
-            <span title="_MobileLineAddress">WHERE </span>    
+    <body>
+    <div id="step1" class="step">
+        <h2>Message Body</h2>
+        <hr>
+        <div class="form-group">
+            <div><label for="messageBody">Create message body:</label></div>
+            <input style="padding: 20px 10px; line-height: 28px;" class="form-control" id="messageBody" type="text" name="messageBody" value="">
         </div>
-        <div class="slds-scrollable slds-box quaryBox">
-            <p class="slds-align_absolute-center" style="cursor: pointer;" onclick="quaryClick()">
-                   isAddress='India' OR isAddress='Hindustan' OR isAddress='Bharat' AND Time='IST' isAddress='India' OR isAddress='Hindustan' OR isAddress='Bharat' AND Time='IST'
-
-            </p> 
-            </div>
-         </div>
-   </div>
-
-</div>
-<hr id="lineDiv"> 
-
-</div>
-
-<!--Second bloack-->
-<div class="slds-card mainBox box2 mydiv"  onmousedown="onAdd(event)" id="data*1">
-    <div class="headerOfQuaryBox" data-original-title="" title="">
-        <table>
-            <tbody>
-                <th>
-                    <td style="width:8em;padding-left:3px;" class="dataExtensionNameStyle"><span title="_MobileLineAddress">Two</span></td>
-                    <td width="20%">
-                        <button class="buttonStyle" onclick="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
-                              </svg>    
-                        </button>
-                    </td>
-                    <td width="20%">
-                        <button class="buttonStyle" onclick="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                                <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
-                              </svg>
-                        </button>
-                    </td>
-                </th>
-            </tbody>
-        </table>
     </div>
-
-   <div class="slds-card__body" style="margin-top: 0px;margin-bottom: 0px;">
-   <div class="dataBox slds-box slds-scrollable" onclick="OpenSelectField(this.id)" id="_MobileLineAddressOpenSelectField">
-        <ul class="dataFields-area-set">
-            <li class="data" title="AddressId" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>AddressId</span></li>
-            <li class="data" title="CreatedBy" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>CreatedBy</span></li>
-            <li class="data" title="CreatedDate" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>CreatedDate</span></li>
-            <li class="data" title="IsActive" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>IsActive</span></li>
-            <li class="data" title="AddressId" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>AddressId</span></li>
-            <li class="data" title="CreatedBy" data-id="e63e3ebe-a7c5-ea11-a2ec-48df37342369"><span>CreatedBy</span></li>
-        </ul>
+    <div id="step2" class="step">
+    <h2>From Number</h2>
+    <hr>
+    <div class="form-group">
+        <div><label for="messagingService">From Number:</label></div>
+        <input class="form-control" id="messagingService" type="text" name="messagingService" value="">
     </div>
-    
-     <!--Where Clause-->
-    <div onclick="OpenWhere(this.id)" id="_MobileLineAddressOpenWhere" class="headerOfQuaryBox" data-original-title="" title="">
-        <div style="text-align:center;">
-            <span title="_MobileLineAddress">WHERE </span>    
+    </div>
+    <div id="step3" class="step">
+    <h2>Account SID</h2>
+    <hr>
+    <div class="form-group">
+        <div><label for="accountSID">Account SID:</label></div>
+            <input class="form-control" id="accountSID" type="text" name="accountSID" value="">
         </div>
-        <div class="slds-scrollable slds-box quaryBox">
-            <p class="slds-align_absolute-center" style="cursor: pointer;" onclick="quaryClick()">
-                isAddress='India' OR isAddress='Hindustan' OR isAddress='Bharat' AND Time='IST'
-            </p> 
+    </div>
+    <div id="step4" class="step">
+        <h2>Auth Token</h2>
+        <hr>
+            <div class="form-group">
+                <div><label for="authToken">Auth Token:</label></div>
+                <input class="form-control" id="authToken" type="text" name="authToken" value="">
             </div>
-         </div>
-   </div>
-</div>
-
-</div>    
-<!--For making block draggable-->
-
-<script>
-    (async function() {
-      if (CSS["paintWorklet"] === undefined)
-        await import(
-          "https://unpkg.com/css-paint-polyfill@next/dist/css-paint-polyfill.js"
-        );
-      CSS.paintWorklet.addModule(
-        "https://unpkg.com/curved-line@1.0.0/curved-line.js"
-      );
-    })();
-  </script>
-
-<script>
-
-    
-
-    var allmy_Div=document.getElementsByClassName('mydiv');
-
-    for(var i=0;i<allmy_Div.length;i++)
-    {
-        dragElement(document.getElementById(allmy_Div[i].id));
-    
-    }
-
-    function dragElement(elmnt)
-    {
-        var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-        if (document.getElementById(elmnt.id)) {
-            /* if present, the header is where you move the DIV from:*/
-            document.getElementById(elmnt.id).onmousedown = dragMouseDown;
-        } else {
-            /* otherwise, move the DIV from anywhere inside the DIV:*/
-            elmnt.onmousedown = dragMouseDown;
-        }
-        function dragMouseDown(e) {
-            e = e || window.event;
-            e.preventDefault();
-            // get the mouse cursor position at startup:
-            pos3 = e.clientX;
-            pos4 = e.clientY;
-            document.onmouseup = closeDragElement;
-            // call a function whenever the cursor moves:
-            document.onmousemove = elementDrag;
-            onAdd();
-        }
-        function elementDrag(e) {
-            e = e || window.event;
-            e.preventDefault();
-            // calculate the new cursor position:
-            pos1 = pos3 - e.clientX;
-            pos2 = pos4 - e.clientY;
-            pos3 = e.clientX;
-            pos4 = e.clientY;
-            // set the element's new position:
-            elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-            console.log('Left:'+elmnt.style.left);
-            changeDivPos(elmnt);
-            document.getElementById('lineDiv').style.backgroundColor="red";
-            onAdd();
-            
-        }
-        function closeDragElement() {
-            /* stop moving when mouse button is released:*/
-            document.onmouseup = null;
-            document.onmousemove = null;
-        }
-    }
-
-    function changeDivPos(e)
-    {
-        console.log('OKKK:'+e.id);
-        var mainId=e.id;
-        var targettedID=mainId.split('*');
-        
-        if(e.offsetLeft<0)
-        {
-            e.style.left=0+"px";
-        }
-        else if(e.offsetTop<0)
-        {
-            e.style.top=0+"px";
-        }
-    }
-    
-    function onAdd(de1,de2)
-    {
-        var div1=document.getElementById('dataextension1*id');
-        var div2=document.getElementById('data*1');
-        var div1_pos = div1.getBoundingClientRect();
-        var div2_pos = div2.getBoundingClientRect();
-
-        
-        if(div1_pos.left<div2_pos.left){
-            var x1 = div1.offsetLeft+div1.offsetWidth;
-            var y1 = div1.offsetTop+10;
-            var x2 = div2.offsetLeft;
-            var y2 = (div2.offsetTop+div2_pos.height/2);
-        }else{
-            var x1 = div1.offsetLeft;
-            var y1 = (div1.offsetTop+div1_pos.height/2);
-            var x2 = div2.offsetLeft+div2.offsetWidth;
-            var y2 = div2.offsetTop+10;
-        }
-        
-        var length = Math.sqrt(((x2-x1) * (x2-x1)) + ((y2-y1) * (y2-y1)));
-        // center
-        var cx = ((x1 + x2) / 2)- (length / 2);
-        var cy = ((y1 + y2) / 2);
-        // angle
-        var angle = Math.atan2((y1-y2),(x1-x2))*(180/Math.PI);
-        // make hr
-
-        var element=document.getElementById('lineDiv').style.cssText=`
-                        opacity: 0.9;
-                        margin: 0px;
-                        background-color:#387F9D;
-                        left: ${cx}px;
-                        top: ${cy}px;
-                        width:${length}px;
-                        -moz-transform: rotate(${angle}deg);
-                        -webkit-transform: rotate(${angle}deg);
-                        -o-transform: rotate(${angle}deg);
-                        -ms-transform: rotate(${angle}deg);
-                         position: absolute;
-                         background: paint(lines)
-                         --curved-lineHeight:20;
-                         --curved-lineWidth:5;
-                         --curved-lineSpread:20;   
-                        `
-                    ;
-    }
-
-</script>
-
-
+    </div>
 </body>
 </html>
+
+
+
+
+
