@@ -26,7 +26,7 @@ app.post('/slackMessage',function(req,res){
   console.log("Slack Message Received");
   console.log(req);
   console.log('------------------------------------');
-  console.log(res);
+  
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
