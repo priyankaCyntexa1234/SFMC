@@ -22,11 +22,14 @@ app.use(bodyParser.raw({type: 'application/jwt'}));
 //app.use(express.methodOverride());
 //app.use(express.favicon());
 
+
 app.post('/slackMessage',function(req,res){
   console.log("Slack Message Received");
   console.log(req.body);
-  console.log('------------------------------------');
-  
+  console.log('Text:'+req.body.text);
+  console.log('Trigger-word:'+req.body.trigger_word);
+  console.log('Trigger-word:'+req.body.user_name);
+  console.log('Channel Id:'+req.body.channel_id);
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
