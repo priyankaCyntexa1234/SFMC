@@ -24,7 +24,7 @@ app.use(bodyParser.raw({type: 'application/jwt'}));
 
 app.post('/slackMessage',function(req,res){
   console.log("Slack Message Received");
-  console.log(req);
+  console.log(req.body);
   console.log('------------------------------------');
   
 });
