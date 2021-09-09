@@ -23,7 +23,7 @@ app.use(bodyParser.raw({type: 'application/jwt'}));
 //app.use(express.favicon());
 
 
-app.post('/slackMessage',function(req,res){
+app.post('/slackmsg',function(req,res){
   console.log("Slack Message Received");
   console.log(req);
   console.log(req.body);
