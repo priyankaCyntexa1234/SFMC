@@ -25,8 +25,9 @@
   },
   "homepage": "https://github.com/bhanuatsfdc/SFMC/journey-builder-activity-template#readme",
   "dependencies": {
-    "body-parser": "^1.18.2",
+    "body-parser": "^1.19.0",
     "bower": "^1.8.0",
+    "curved-line": "^1.0.1",
     "errorhandler": "^1.5.0",
     "express": "^4.15.4",
     "jsonwebtoken": "^8.0.1",

@@ -15,8 +15,18 @@
     },
     "arguments": {
         "execute": {
+<<<<<<< HEAD
           
           "url": "https://custom-journey-activity.herokuapp.com/journeybuilder/execute",
+=======
+           "inArguments":[
+				{
+                    "emailAddress": ""
+                }									
+			],
+          "outArguments": [],
+          "url": "https://customactivityappdemo.herokuapp.com/journeybuilder/execute",
+>>>>>>> 68ef00bd765750eef47eaf1e4e873a73d71c9509
            "verb": "POST",
             "body": "",
             "header": "",
@@ -26,31 +36,64 @@
         }
     },
     "configurationArguments": {
+<<<<<<< HEAD
       "applicationExtensionKey": "95d5cc86-8a12-4027-88cd-b2f55dc2be9b",
       "save": {
         "url": "https://custom-journey-activity.herokuapp.com/journeybuilder/save",
+=======
+      "applicationExtensionKey": "1ef2dc26-00ac-4d99-a648-f8c6132f8370",
+      "save": {
+        "url": " https://multiplewizard.herokuapp.com/journeybuilder/save",
+>>>>>>> 68ef00bd765750eef47eaf1e4e873a73d71c9509
           "verb": "POST",
         "useJwt": true
        },
        "publish": {
+<<<<<<< HEAD
         "url": "https://custom-journey-activity.herokuapp.com/journeybuilder/publish",
+=======
+        "url": " https://multiplewizard.herokuapp.com/journeybuilder/publish",
+>>>>>>> 68ef00bd765750eef47eaf1e4e873a73d71c9509
            "verb": "POST",
         "useJwt": true
        },
       "stop": {
+<<<<<<< HEAD
         "url": "https://custom-journey-activity.herokuapp.com/journeybuilder/stop",
+=======
+        "url": " https://multiplewizard.herokuapp.com/journeybuilder/stop",
+>>>>>>> 68ef00bd765750eef47eaf1e4e873a73d71c9509
            "verb": "POST",
         "useJwt": true
       },
       "validate": {
+<<<<<<< HEAD
         "url": "https://custom-journey-activity.herokuapp.com/journeybuilder/validate",
+=======
+        "url": " https://multiplewizard.herokuapp.com/journeybuilder/validate",
+>>>>>>> 68ef00bd765750eef47eaf1e4e873a73d71c9509
         "verb": "POST",
         "useJwt": true
       }
     },
-    "wizardSteps": [
-        { "label": "Configure Activity", "key": "step1" }
-    ],
+     "wizardSteps": [{
+			"label": "First Step",
+			"key": "step1"
+		},
+		{
+			"label": "Second Step",
+			"key": "step2"
+		},
+		{
+			"label": "Third Step",
+			"key": "step3"
+		},
+		{
+			"label": "Final Step",
+			"key": "step4"
+		}     
+		     
+	],
     "userInterfaces": {
         "configModal": {
             "height": 400,
