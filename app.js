@@ -12,6 +12,8 @@ var activity    = require('./routes/activity');
 
 var app = express();
 
+
+
 // Configure Express
 app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.raw({type: 'application/jwt'}));
@@ -19,6 +21,11 @@ app.use(bodyParser.raw({type: 'application/jwt'}));
 
 //app.use(express.methodOverride());
 //app.use(express.favicon());
+
+app.post('/slackMessage',function(req,res){
+  console.log("Slack Message Received");
+  console.log(req);
+});
 
 app.use(express.static(path.join(__dirname, 'public')));
 
