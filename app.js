@@ -88,8 +88,8 @@ function getautomation(automationame) {
 
 /******************************************ANIL KUMAR*******************************************/
 
-
-app.post('/slackMessage', async function(req,res){
+app.post("/slackMessage", async function (req, res) 
+{
   console.log("Slack Message Received");
   //console.log(req);
   console.log(req.body);
