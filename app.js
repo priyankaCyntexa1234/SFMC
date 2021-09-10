@@ -39,6 +39,25 @@ app.post('/slackmsg',function(req,res){
   console.log(slug[2]);
   var access_token =  getacesstoken();
   console.log(" access_token:"+ access_token);
+ // var request = require('request');
+ var options = {
+  'method': 'POST',
+  'url': 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
+  'headers': {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    "grant_type": "client_credentials",
+    "client_id": "4qdbeo2pv92jb8yf2v0pq6zi",
+    "client_secret": "6y9SPiqgG5mjzmptf33PCTvS",
+    "account_id": "514015917"
+  })
+
+};
+request(options, function (error, response) {
+  if (error) throw new Error(error);
+  console.log(response.body.access_token);
+});
 
 });
 
