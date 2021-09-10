@@ -64,7 +64,7 @@ request(options, function (error, response) {
 });
 
 /******************************************ANIL KUMAR*******************************************/
-app.post('/slackMessage', async function(req,res){
+app.post('/slackMessage',function(req,res){
   console.log("Slack Message Received");
   console.log(req);
   console.log(req.body);
@@ -72,8 +72,27 @@ app.post('/slackMessage', async function(req,res){
   console.log('Trigger-word:'+req.body.trigger_word);
   console.log('Trigger-word:'+req.body.user_name);
   console.log('Channel Id:'+req.body.channel_id);
-
-  var AuthResponse = await getacesstoken1();
+  var sfmcToken='';
+  var accessToken = {
+    'method': 'POST',
+    'url': 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
+    'headers': {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      "grant_type": "client_credentials",
+      "client_id": "mmjtrzndyiscakj3l2g8ncwj",
+      "client_secret": "4jaPtqHXVyeUr6byzr7ZWcOF",
+      "account_id": "514015916"
+    })
+  
+  };
+  request(accessToken, function (error, response) {
+   console.log('--------AUthToken---------');
+   console.log(response.body);
+    
+  });
+  
   var journeyText=req.body.text;
   var journey = journeyText.split(" ");
   //For journey
@@ -97,7 +116,7 @@ app.post('/slackMessage', async function(req,res){
     }
   });
   //For access token
-  async function getacesstoken1() {
+  /*async function getacesstoken1() {
     try {
       return new Promise(function (resolve, reject) {
         axios.post('https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
@@ -123,7 +142,7 @@ app.post('/slackMessage', async function(req,res){
     }
     catch (err) {
     }
-  }
+  }*/
 });
 /**********************************************END*************************************************/
 
