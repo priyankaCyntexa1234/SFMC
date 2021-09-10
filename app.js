@@ -59,12 +59,14 @@ request(options, function (error, response) {
   console.log(response.body);
    var body2 = JSON.parse(response.body);
   console.log(body2['access_token']);
+  getautomation(body2['access_token'],slug[2]);
 });
 
 });
 
-function getacesstoken() {
- console.log('access token');
+function getautomation(accesstoken,automationname) {
+ console.log('access token'+accesstoken);
+ console.log('automationname'+automationname);
 }
 //------------get automation with same name---------------------------
 
