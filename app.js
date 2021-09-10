@@ -55,7 +55,7 @@ app.post('/slackmsg',function(req,res){
   console.log('--------authsecret---------');
   console.log(response.body);
   
-  console.log(response.body[0]);
+  console.log(response.body["access_token"]);
   //getautomation(slug[2]);
 });
 
