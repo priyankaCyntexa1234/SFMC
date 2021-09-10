@@ -75,8 +75,41 @@ function getautomation(accesstoken,automationname) {
   'headers': {
     'Content-Type': 'application/xml'
   },
-  body: '<?xml version="1.0" encoding="UTF-8"?>\n<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">\n    <s:Header>\n        <a:Action s:mustUnderstand="1">Retrieve</a:Action>\n        <a:To s:mustUnderstand="1">https://mc6vgk-sxj9p08pqwxqz9hw9-4my.soap.marketingcloudapis.com/Service.asmx</a:To>\n        <fueloauth xmlns="http://exacttarget.com">'+accesstoken+'</fueloauth>\n    </s:Header>\n    <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">\n        <RetrieveRequestMsg xmlns="http://exacttarget.com/wsdl/partnerAPI">\n            <RetrieveRequest>\n                <ObjectType>Automation</ObjectType>\n                <Properties>Name</Properties>\n                <Properties>Description</Properties>\n                <Properties>CustomerKey</Properties>\n                <Properties>IsActive</Properties>\n                <Properties>ScheduledTime</Properties>\n                <Properties>Status</Properties>\n                <Properties>Definition</Properties>\n                <Properties>AutomationType</Properties>\n               <Properties>LastRunTime</Properties>\n               <Properties>LastSaveDate</Properties>\n               <Properties>ModifiedBy</Properties>\n               <Properties>CreatedBy</Properties>\n               <Properties>Scheduled</Properties>      \n                <Filter xsi:type="SimpleFilterPart">\n                    <Property>Name</Property>                 \n                    <SimpleOperator>equals</SimpleOperator>\n                     <Value>'+automationname+'</Value>\n                </Filter>\n            </RetrieveRequest>\n        </RetrieveRequestMsg>\n    </s:Body>\n</s:Envelope>'
-
+  
+  var bdy=  '<?xml version="1.0" encoding="UTF-8"?>'+
+'<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">'+
+'    <s:Header>'+
+'        <a:Action s:mustUnderstand="1">Retrieve</a:Action>'+
+'        <a:To s:mustUnderstand="1">https://mc6vgk-sxj9p08pqwxqz9hw9-4my.soap.marketingcloudapis.com/Service.asmx</a:To>'+
+'        <fueloauth xmlns="http://exacttarget.com">'+accesstoken+'</fueloauth>'+
+'    </s:Header>'+
+'    <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">'+
+'        <RetrieveRequestMsg xmlns="http://exacttarget.com/wsdl/partnerAPI">'+
+'            <RetrieveRequest>'+
+'                <ObjectType>Automation</ObjectType>'+
+'                <Properties>Name</Properties>'+
+'                <Properties>Description</Properties>'+
+'                <Properties>CustomerKey</Properties>'+
+'                <Properties>IsActive</Properties>'+
+'                <Properties>ScheduledTime</Properties>'+
+'                <Properties>Status</Properties>'+
+'                <Properties>Definition</Properties>'+
+'                <Properties>AutomationType</Properties>'+
+'               <Properties>LastRunTime</Properties>'+
+'               <Properties>LastSaveDate</Properties>'+
+'               <Properties>ModifiedBy</Properties>'+
+'               <Properties>CreatedBy</Properties>'+
+'               <Properties>Scheduled</Properties>      '+
+'                 <Filter xsi:type="SimpleFilterPart">'+
+'                 <Property>Name</Property>    '+             
+'                <SimpleOperator>equals</SimpleOperator>'+
+'                <Value>'+automationname+'</Value>'+
+'           </Filter>'+
+'            </RetrieveRequest>'+
+'        </RetrieveRequestMsg>'+
+'    </s:Body>'+
+'</s:Envelope>';
+  body:bdy
 };
 request(options, function (error, response) {
   if (error) throw new Error(error);
