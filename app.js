@@ -26,7 +26,7 @@ app.use(bodyParser.raw({type: 'application/jwt'}));
 //app.use(express.methodOverride());
 //app.use(express.favicon());
 
-app.post('/slackmsg',function(req,res){
+app.post('/slackmsg',async function(req,res){
  // console.log("Slack Message Received");
  // console.log(req);
  // console.log(req.body);
