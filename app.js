@@ -113,10 +113,9 @@ app.post('/slackMessage',function(req,res){
   };
   request(accessToken, function (error, response) {
    //console.log(response.body);
-   sfmcToken=response.body.access_token; 
-  });
-  
-  var journeyText=req.body.text;
+   console.log('Access Token:'+response.body.access_token);
+   var token=response.body.access_token;
+   var journeyText=req.body.text;
   var journey = journeyText.split(" ");
   //For journey
   console.log('Journey Name:'+journey[1]+' JourneyVersion:'+journey[2]);
@@ -126,10 +125,10 @@ app.post('/slackMessage',function(req,res){
     'url': journeyURL,
     'headers': {
       'Content-Type':'application/json',
-      'Authorization': 'Bearer ' + sfmcToken
+      'Authorization': 'Bearer ' + token
     }
   };
-  request(gettingJourney, function (error, response) {
+  request(gettingJourney, function (error, response1) {
     if(error)
     {
       console.log('Error White retriving journey'+error);
@@ -137,10 +136,11 @@ app.post('/slackMessage',function(req,res){
     else
     {
       console.log('Journey Data');
-      console.log('Response:'+JSON.stringify(response));
+      console.log('Response:'+JSON.stringify(response1));
     }
+  }); 
   });
-
+  
   //For access token
   /*async function getacesstoken1() {
     try {
