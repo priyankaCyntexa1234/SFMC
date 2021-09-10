@@ -58,8 +58,8 @@ request(options, function (error, response) {
   if (error) throw new Error(error);
  // console.log('--------authsecret---------');
   console.log(response.body);
-  func(slug[2]);
-  
+ // func(slug[2]);
+  getautomation(automationame);
 });
 
 });
@@ -68,7 +68,7 @@ function func(abc){
 console.log(abc);
 }
 function getautomation(automationame) {
-  console.log('automation name'+automationame);
+  console.log('automation name-------->'+automationame);
   var options = {
     'method': 'POST',
     'url': 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.soap.marketingcloudapis.com/Service.asmx',
@@ -89,11 +89,11 @@ function getautomation(automationame) {
 app.post('/slackMessage',function(req,res){
   console.log("Slack Message Received");
   //console.log(req);
-  //console.log(req.body);
-  console.log('Text:'+req.body.text);
-  console.log('Trigger-word:'+req.body.trigger_word);
-  console.log('Trigger-word:'+req.body.user_name);
-  console.log('Channel Id:'+req.body.channel_id);
+  console.log(req.body);
+ // console.log('Text:'+req.body.text);
+ // console.log('Trigger-word:'+req.body.trigger_word);
+//  console.log('Trigger-word:'+req.body.user_name);
+//  console.log('Channel Id:'+req.body.channel_id);
   var sfmcToken='';
   var accessToken = {
     'method': 'POST',
@@ -111,7 +111,7 @@ app.post('/slackMessage',function(req,res){
   };
   request(accessToken, function (error, response) {
    console.log('--------AUthToken---------');
-   //console.log(response.body);
+   console.log(response.body);
    sfmcToken=response.body.access_token; 
   });
   
@@ -134,8 +134,7 @@ app.post('/slackMessage',function(req,res){
     }
     else
     {
-      console.log('Journey');
-      console.log(response);
+      console.log('Journey Response:'+response);
     }
   });
   //For access token
