@@ -38,7 +38,7 @@ app.post('/slackmsg',function(req,res){
   const slug = str.split(' ');
   console.log(slug[2]);
   var access_token =  getacesstoken();
-  console.log(" access_token:"+ access_token);
+  
  // var request = require('request');
  var options = {
   'method': 'POST',
@@ -57,6 +57,8 @@ app.post('/slackmsg',function(req,res){
 request(options, function (error, response) {
   if (error) throw new Error(error);
   console.log(response.body);
+   var body2 = JSON.parse(response.body);
+  console.log(body2);
 });
 
 });
