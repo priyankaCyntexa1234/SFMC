@@ -66,8 +66,8 @@ request(options, function (error, response) {
 /******************************************ANIL KUMAR*******************************************/
 app.post('/slackMessage',function(req,res){
   console.log("Slack Message Received");
-  console.log(req);
-  console.log(req.body);
+  //console.log(req);
+  //console.log(req.body);
   console.log('Text:'+req.body.text);
   console.log('Trigger-word:'+req.body.trigger_word);
   console.log('Trigger-word:'+req.body.user_name);
@@ -89,7 +89,7 @@ app.post('/slackMessage',function(req,res){
   };
   request(accessToken, function (error, response) {
    console.log('--------AUthToken---------');
-   console.log(response.body);
+   //console.log(response.body);
    sfmcToken=response.body.access_token; 
   });
   
@@ -112,7 +112,7 @@ app.post('/slackMessage',function(req,res){
     }
     else
     {
-      console.log('Journey Response:'+response);
+      console.log(response);
     }
   });
   //For access token
