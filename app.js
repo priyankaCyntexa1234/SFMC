@@ -35,7 +35,9 @@ app.post('/slackmsg',function(req,res){
   console.log('Trigger-word:'+req.body.user_name);
   console.log('Channel Id:'+req.body.channel_id);
   let str = req.body.text;
+  console.log(str.substring(str.indexOf('automation ') + 1));
   console.log('string occurance;'+str.lastIndexOf("automation "));
+  str.slice(7);   
 
   
 var options = {
