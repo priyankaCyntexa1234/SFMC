@@ -133,10 +133,11 @@ app.post('/slackMessage',function(req,res){
     }
     else
     {
-      console.log('Journey Response:'+response);
+      console.log('Journey Data');
+      console.log(response);
     }
   });
-  
+
   //For access token
   /*async function getacesstoken1() {
     try {
