@@ -81,7 +81,8 @@ function getautomation(automationame) {
   request(options, function (error, response) {
     if (error) throw new Error(error);
     console.log('automation name');
-    console.log(response.body);
+    //console.log(response.body);
+    console.log(response.body.RetrieveResponseMsg);
   });
 }
 
@@ -134,7 +135,7 @@ app.post('/slackMessage',function(req,res){
     else
     {
       console.log('Journey Data');
-      console.log(response.body);
+      console.log(response);
     }
   });
 
