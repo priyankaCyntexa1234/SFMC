@@ -26,43 +26,7 @@ app.use(bodyParser.raw({type: 'application/jwt'}));
 //app.use(express.favicon());
 
 
-app.post('/slackmsg',function(req,res){
- // console.log("Slack Message Received");
- // console.log(req);
- // console.log(req.body);
- // console.log('Text:'+req.body.text);
- // console.log('Trigger-word:'+req.body.trigger_word);
- // console.log('Trigger-word:'+req.body.user_name);
- // console.log('Channel Id:'+req.body.channel_id);
-  let str = req.body.text;
-  const slug = str.split(' ');
-  console.log(slug[2]);
-  
 
-  
-var options = {
-  'method': 'POST',
-  'url': 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
-  'headers': {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    "grant_type": "client_credentials",
-    "client_id": "4qdbeo2pv92jb8yf2v0pq6zi",
-    "client_secret": "6y9SPiqgG5mjzmptf33PCTvS",
-    "account_id": "514015917"
-  })
-
-};
-request(options, function (error, response) {
-  if (error) throw new Error(error);
-  console.log('--------authsecret---------');
-  console.log(response.body[0]);
-  func(slug[2]);
-  //getautomation(slug[2]);
-});
-
-});
 //------------get automation with same name---------------------------
 
 /******************************************ANIL KUMAR*******************************************/
