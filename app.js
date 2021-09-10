@@ -36,10 +36,8 @@ app.post('/slackmsg',function(req,res){
   console.log('Channel Id:'+req.body.channel_id);
   let str = req.body.text;
   const slug = str.split(' ');
-  console.log(slug);
-  console.log( str.substring(str.indexOf('automation ') + 1));
-  console.log('string occurance;'+str.lastIndexOf("automation "));
-  str.slice(7);   
+  console.log(slug[2]);
+  
 
   
 var options = {
