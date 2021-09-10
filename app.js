@@ -108,7 +108,7 @@ body : '<?xml version="1.0" encoding="UTF-8"?>'+
 '            </RetrieveRequest>'+
 '        </RetrieveRequestMsg>'+
 '    </s:Body>'+
-'</s:Envelope>',
+'</s:Envelope>'
 };
 request(options, function (error, response) {
   if (error) throw new Error(error);
