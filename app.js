@@ -36,35 +36,39 @@ app.post('/slackmsg',function(req,res){
   let str = req.body.text;
   const slug = str.split(' ');
   console.log(slug[2]);
-  var options = {
-  'method': 'POST',
-  'url': 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
-  'headers': {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    "grant_type": "client_credentials",
-    "client_id": "4qdbeo2pv92jb8yf2v0pq6zi",
-    "client_secret": "6y9SPiqgG5mjzmptf33PCTvS",
-    "account_id": "514015917"
-  })
-
-};
- request(options, function (error, response) {
-  if (error) throw new Error(error);
-  console.log('--------authsecret---------');
-  console.log(response.body);
-  
-  console.log(response.body["access_token"]);
-  //getautomation(slug[2]);
-});
-
+  var access_token = getacesstoken();
   
 
 });
 
-
-
+function getacesstoken() {
+  try {
+    return new Promise(function (resolve, reject) {
+      axios.post('https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
+        {
+          "client_id": "4qdbeo2pv92jb8yf2v0pq6zi",
+           "client_secret": "6y9SPiqgG5mjzmptf33PCTvS",
+          'grant_type': 'client_credentials'
+       
+        })
+        .then((response) => {
+          resolve({
+            'AccessToken': response.data.access_token,
+            'RestURL': response.data.rest_instance_url,
+            'SoapURL': response.data.soap_instance_url
+          });
+        },
+          (error) => {
+            var errorMessage = {
+              error: "This is error"
+            };
+            res.send(errorMessage);
+          })
+    });
+  }
+  catch (err) {
+  }
+}
 //------------get automation with same name---------------------------
 
 /******************************************ANIL KUMAR*******************************************/
