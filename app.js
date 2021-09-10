@@ -27,13 +27,13 @@ app.use(bodyParser.raw({type: 'application/jwt'}));
 
 
 app.post('/slackmsg',function(req,res){
-  console.log("Slack Message Received");
-  console.log(req);
-  console.log(req.body);
-  console.log('Text:'+req.body.text);
-  console.log('Trigger-word:'+req.body.trigger_word);
-  console.log('Trigger-word:'+req.body.user_name);
-  console.log('Channel Id:'+req.body.channel_id);
+ // console.log("Slack Message Received");
+ // console.log(req);
+ // console.log(req.body);
+ // console.log('Text:'+req.body.text);
+ // console.log('Trigger-word:'+req.body.trigger_word);
+ // console.log('Trigger-word:'+req.body.user_name);
+ // console.log('Channel Id:'+req.body.channel_id);
   let str = req.body.text;
   const slug = str.split(' ');
   console.log(slug[2]);
@@ -64,7 +64,9 @@ request(options, function (error, response) {
 
 });
 //------------get automation with same name---------------------------
-
+function func(abc){
+console.log(abc);
+}
 function getautomation(automationame) {
   console.log('automation name-------->'+automationame);
   var options = {
