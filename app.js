@@ -103,8 +103,9 @@ app.post('/slackMessage',function(req,res){
   };
   request(accessToken, function (error, response) {
    //console.log(response.body);
-   console.log('Access Token:'+response.body.access_token);
+   //console.log('Access Token:'+response.body.access_token);
    var token=response.body.access_token;
+   console.log('Access Token:'+token);
    var journeyText=req.body.text;
   var journey = journeyText.split(" ");
   //For journey
@@ -115,7 +116,7 @@ app.post('/slackMessage',function(req,res){
     'url': journeyURL,
     'headers': {
       'Content-Type':'application/json',
-      'Authorization': 'Bearer ' + token
+      'Authorization': 'Bearer '+token
     }
   };
   request(gettingJourney, function (error, response1) {
