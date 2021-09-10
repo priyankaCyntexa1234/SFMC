@@ -51,7 +51,9 @@ var options = {
 };
 request(options, function (error, response) {
   if (error) throw new Error(error);
+  console.log('--------authsecret---------');
   console.log(response.body);
+  
 });
 
 });
