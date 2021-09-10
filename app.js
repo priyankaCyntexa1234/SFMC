@@ -57,12 +57,9 @@ var options = {
 request(options, function (error, response) {
   if (error) throw new Error(error);
  // console.log('--------authsecret---------');
-  console.log(response.body);
- console.log('--------authsecret---------');
-  console.log(response.body.access_token);
- 
+  //console.log(response.body);
   func(slug[2]);
- // getautomation(slug[2]);
+  getautomation(slug[2]);
 });
 
 });
@@ -70,11 +67,24 @@ request(options, function (error, response) {
 function func(abc){
 console.log(abc);
 }
-function getautomation(automationame,et_subdomain,dne_etAccessToken) {
+function getautomation(automationame) {
   console.log('automation name-------->'+automationame);
-  console.log('Subdomain-------->'+et_subdomain);
- console.log('access token-------->'+dne_etAccessToken);
-  
+  var options = {
+    'method': 'POST',
+    'url': 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.soap.marketingcloudapis.com/Service.asmx',
+    'headers': {
+      'Content-Type': 'application/xml'
+    },
+   body: '<?xml version="1.0" encoding="UTF-8"?>\n<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">\n    <s:Header>\n        <a:Action s:mustUnderstand="1">Retrieve</a:Action>\n        <a:To s:mustUnderstand="1">https://mc6vgk-sxj9p08pqwxqz9hw9-4my.soap.marketingcloudapis.com/Service.asmx</a:To>\n        <fueloauth xmlns="http://exacttarget.com">eyJhbGciOiJIUzI1NiIsImtpZCI6IjQiLCJ2ZXIiOiIxIiwidHlwIjoiSldUIn0.eyJhY2Nlc3NfdG9rZW4iOiJZQ0JObWRDUGQwaEZXTFJRTDFveDB3OXMiLCJjbGllbnRfaWQiOiI0cWRiZW8ycHY5MmpiOHlmMnYwcHE2emkiLCJlaWQiOjExMDAwNTY5MCwic3RhY2tfa2V5IjoiUzExIiwicGxhdGZvcm1fdmVyc2lvbiI6MiwiY2xpZW50X3R5cGUiOiJTZXJ2ZXJUb1NlcnZlciJ9.2jx1ppxn2P-1lGVepgMjC3rnlNEH-Vh34s8R0iBivRY.5c-_Bobbxb6pho-3__Y4n_4Z3AHfKQ87Jj8BrinfckKkOj9JRnf-XFeEi9z1WvPt00ImjRKaTLvAg99G2haUyRRNE8W27liHG4CpW50yRstLE9vnuOUwCe2EicKXt4FA8MHIqEYtN-Tpn3KS8PEdjj0U-8c6rREvHAnYMmWW8GT-aWrcaZ6</fueloauth>\n    </s:Header>\n    <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">\n        <RetrieveRequestMsg xmlns="http://exacttarget.com/wsdl/partnerAPI">\n            <RetrieveRequest>\n                <ObjectType>Automation</ObjectType>\n                <Properties>Name</Properties>\n                <Properties>Description</Properties>\n                <Properties>CustomerKey</Properties>\n                <Properties>IsActive</Properties>\n                <Properties>ScheduledTime</Properties>\n                <Properties>Status</Properties>\n                <Properties>Definition</Properties>\n                <Properties>AutomationType</Properties>\n               <Properties>LastRunTime</Properties>\n               <Properties>LastSaveDate</Properties>\n               <Properties>ModifiedBy</Properties>\n               <Properties>CreatedBy</Properties>\n               <Properties>Scheduled</Properties>      \n                <Filter xsi:type="SimpleFilterPart">\n                    <Property>Name</Property>                 \n                    <SimpleOperator>equals</SimpleOperator>\n                     <Value>Demo12345</Value>\n                </Filter>\n            </RetrieveRequest>\n        </RetrieveRequestMsg>\n    </s:Body>\n</s:Envelope>'
+
+
+  };
+  request(options, function (error, response) {
+    if (error) throw new Error(error);
+    console.log('automation name');
+    console.log(response.body);
+ 
+  });
 }
 
 /******************************************ANIL KUMAR*******************************************/
@@ -103,10 +113,10 @@ app.post('/slackMessage',function(req,res){
   };
   request(accessToken, function (error, response) {
    //console.log(response.body);
-   console.log('Access Token:'+response.body.access_token);
-   var token=response.body.access_token;
-   console.log('Access Token:'+token);
-   var journeyText=req.body.text;
+   console.log('Access Token:'+response.body.access_token); 
+  });
+  
+  var journeyText=req.body.text;
   var journey = journeyText.split(" ");
   //For journey
   console.log('Journey Name:'+journey[1]+' JourneyVersion:'+journey[2]);
@@ -116,10 +126,10 @@ app.post('/slackMessage',function(req,res){
     'url': journeyURL,
     'headers': {
       'Content-Type':'application/json',
-      'Authorization': 'Bearer '+token
+      'Authorization': 'Bearer ' + sfmcToken
     }
   };
-  request(gettingJourney, function (error, response1) {
+  request(gettingJourney, function (error, response) {
     if(error)
     {
       console.log('Error White retriving journey'+error);
@@ -127,11 +137,10 @@ app.post('/slackMessage',function(req,res){
     else
     {
       console.log('Journey Data');
-      console.log('Response:'+JSON.stringify(response1));
+      console.log('Response:'+JSON.stringify(response));
     }
-  }); 
   });
-  
+
   //For access token
   /*async function getacesstoken1() {
     try {
