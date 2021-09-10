@@ -64,7 +64,7 @@ request(options, function (error, response) {
 });
 
 /******************************************ANIL KUMAR*******************************************/
-app.post('/slackMessage',function(req,res){
+app.post('/slackMessage', async function(req,res){
   console.log("Slack Message Received");
   console.log(req);
   console.log(req.body);
