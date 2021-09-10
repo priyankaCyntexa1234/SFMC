@@ -74,6 +74,7 @@ app.post('/slackMessage',function(req,res){
   console.log('Trigger-word:'+req.body.trigger_word);
   console.log('Trigger-word:'+req.body.user_name);
   console.log('Channel Id:'+req.body.channel_id);
+
   var AuthResponse = await getacesstoken();
   var journeyText=req.body.text;
   var journey = journeyText.split(" ");
@@ -97,41 +98,35 @@ app.post('/slackMessage',function(req,res){
       console.log('Journey Response:'+response);
     }
   });
-  //Journey END
-});
-/*****************************END**********************************/
-
-//For Retriving the journey from SFMC
-
-//For getting SFMC token
-async function getacesstoken() {
-  try {
-    return new Promise(function (resolve, reject) {
-      axios.post('https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
-        {
-          'client_id': 'mmjtrzndyiscakj3l2g8ncwj',
-          'client_secret': '4jaPtqHXVyeUr6byzr7ZWcOF',
-          'grant_type': 'client_credentials'
-        })
-        .then((response) => {
-          resolve({
-            'AccessToken': response.data.access_token,
-            'RestURL': response.data.rest_instance_url,
-            'SoapURL': response.data.soap_instance_url
-          });
-        },
-          (error) => {
-            var errorMessage = {
-              error: "This is error"
-            };
-            res.send(errorMessage);
+  //For access token
+  async function getacesstoken() {
+    try {
+      return new Promise(function (resolve, reject) {
+        axios.post('https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
+          {
+            'client_id': 'mmjtrzndyiscakj3l2g8ncwj',
+            'client_secret': '4jaPtqHXVyeUr6byzr7ZWcOF',
+            'grant_type': 'client_credentials'
           })
-    });
+          .then((response) => {
+            resolve({
+              'AccessToken': response.data.access_token,
+              'RestURL': response.data.rest_instance_url,
+              'SoapURL': response.data.soap_instance_url
+            });
+          },
+            (error) => {
+              var errorMessage = {
+                error: "This is error"
+              };
+              res.send(errorMessage);
+            })
+      });
+    }
+    catch (err) {
+    }
   }
-  catch (err) {
-  }
-}
-
+});
 /**********************************************END*************************************************/
 
 app.use(express.static(path.join(__dirname, 'public')));
