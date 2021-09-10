@@ -88,70 +88,7 @@ function getautomation(automationame) {
 
 /******************************************ANIL KUMAR*******************************************/
 
-app.post("/slackMessage",function (req, res) 
-{
-  console.log("Slack Message Received");
-  //console.log(req);
-  console.log(req.body);
- // console.log('Text:'+req.body.text);
- // console.log('Trigger-word:'+req.body.trigger_word);
-//  console.log('Trigger-word:'+req.body.user_name);
-//  console.log('Channel Id:'+req.body.channel_id);
-  
-  /*var journeyText=req.body.text;
-  var journey = journeyText.split(" ");
-  //For journey
-  console.log('Journey Name:'+journey[1]+' JourneyVersion:'+journey[2]);
-  var journeyURL='https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/interaction/v1/interactions?name='+journey[1];
-  var gettingJourney = {
-    'method': 'GET',
-    'url': journeyURL,
-    'headers': {
-      'Content-Type':'application/json',
-      'Authorization': 'Bearer ' + sfmcToken
-    }
-  };
-  request(gettingJourney, function (error, response) {
-    if(error)
-    {
-      console.log('Error White retriving journey'+error);
-    }
-    else
-    {
-      console.log('Journey Data');
-      console.log('Response:'+JSON.stringify(res));
-    }
-  });*/
 
-  //For access token
-  /*async function getacesstoken1() {
-    try {
-      return new Promise(function (resolve, reject) {
-        axios.post('https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
-          {
-            'client_id': 'mmjtrzndyiscakj3l2g8ncwj',
-            'client_secret': '4jaPtqHXVyeUr6byzr7ZWcOF',
-            'grant_type': 'client_credentials'
-          })
-          .then((response) => {
-            resolve({
-              'AccessToken': response.data.access_token,
-              'RestURL': response.data.rest_instance_url,
-              'SoapURL': response.data.soap_instance_url
-            });
-          },
-            (error) => {
-              var errorMessage = {
-                error: "This is error"
-              };
-              res.send(errorMessage);
-            })
-      });
-    }
-    catch (err) {
-    }
-  }*/
-});
 /**********************************************END*************************************************/
 
 app.use(express.static(path.join(__dirname, 'public')));
