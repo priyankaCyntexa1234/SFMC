@@ -103,7 +103,7 @@ app.post('/slackMessage',function(req,res){
   };
   request(accessToken, function (error, response) {
    //console.log(response.body);
-   //console.log('Access Token:'+response.body.access_token);
+   console.log('Access Token:'+response.body.access_token);
    var token=response.body.access_token;
    console.log('Access Token:'+token);
    var journeyText=req.body.text;
