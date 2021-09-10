@@ -58,7 +58,7 @@ request(options, function (error, response) {
   if (error) throw new Error(error);
   console.log(response.body);
    var body2 = JSON.parse(response.body);
-  console.log(body2);
+  console.log(body2['access_token']);
 });
 
 });
