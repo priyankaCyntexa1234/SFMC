@@ -136,7 +136,7 @@ app.post('/slackMessage',function(req,res){
     else
     {
       console.log('Journey Data');
-      console.log('Response:'+response);
+      console.log('Response:'+JSON.stringify(response));
     }
   });
 
