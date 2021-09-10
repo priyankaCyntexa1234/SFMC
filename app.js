@@ -90,7 +90,7 @@ app.post('/slackMessage',function(req,res){
   request(accessToken, function (error, response) {
    console.log('--------AUthToken---------');
    console.log(response.body);
-    
+   sfmcToken=response.body.access_token; 
   });
   
   var journeyText=req.body.text;
@@ -102,7 +102,7 @@ app.post('/slackMessage',function(req,res){
     'method': 'GET',
     'url': journeyURL,
     'headers': {
-      'Authorization': 'Bearer ' + AuthResponse.AccessToken
+      'Authorization': 'Bearer ' + sfmcToken
     }
   };
   request(options, function (error, response) {
