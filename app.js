@@ -37,12 +37,12 @@ app.post('/slackmsg',function(req,res){
   let str = req.body.text;
   const slug = str.split(' ');
   console.log(slug[2]);
-  var access_token = getacesstoken();
+  var access_token = await getacesstoken();
   console.log(" access_token:"+ access_token.AccessToken);
 
 });
 
-function getacesstoken() {
+async function getacesstoken() {
   try {
     return new Promise(function (resolve, reject) {
       axios.post('https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
