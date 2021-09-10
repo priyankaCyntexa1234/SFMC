@@ -65,8 +65,8 @@ request(options, function (error, response) {
 });
 
 function getautomation(accesstoken,automationname) {
- console.log('access token'+accesstoken);
- console.log('automationname'+automationname);
+ console.log('access token------------>'+accesstoken);
+ console.log('automationname-------------->'+automationname);
 }
 //------------get automation with same name---------------------------
 
