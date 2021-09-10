@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/bhanuatsfdc/SFMC/journey-builder-activity-template#readme",
   "dependencies": {
+    "adios": "^2.1.0",
     "axios": "^0.21.4",
     "body-parser": "^1.19.0",
     "bower": "^1.8.0",
