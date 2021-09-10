@@ -73,7 +73,7 @@ app.post('/slackMessage',function(req,res){
   console.log('Trigger-word:'+req.body.user_name);
   console.log('Channel Id:'+req.body.channel_id);
 
-  var AuthResponse =getacesstoken();
+  var AuthResponse = await getacesstoken1();
   var journeyText=req.body.text;
   var journey = journeyText.split(" ");
   //For journey
@@ -97,7 +97,7 @@ app.post('/slackMessage',function(req,res){
     }
   });
   //For access token
-  async function getacesstoken() {
+  async function getacesstoken1() {
     try {
       return new Promise(function (resolve, reject) {
         axios.post('https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
