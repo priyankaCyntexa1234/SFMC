@@ -123,6 +123,7 @@ app.post('/slackMessage',function(req,res){
     'method': 'GET',
     'url': journeyURL,
     'headers': {
+      'Content-Type':'application/json',
       'Authorization': 'Bearer ' + sfmcToken
     }
   };
