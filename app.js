@@ -34,6 +34,9 @@ app.post('/slackmsg',function(req,res){
   console.log('Trigger-word:'+req.body.trigger_word);
   console.log('Trigger-word:'+req.body.user_name);
   console.log('Channel Id:'+req.body.channel_id);
+  let str = req.body.text;
+  console.log('string occurance;'+str.lastIndexOf("active automation "));
+
   
 var options = {
   'method': 'POST',
@@ -51,8 +54,8 @@ var options = {
 };
 request(options, function (error, response) {
   if (error) throw new Error(error);
-  console.log('--------authsecret---------');
-  console.log(response.body);
+ // console.log('--------authsecret---------');
+ // console.log(response.body);
   
 });
 
