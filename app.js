@@ -81,7 +81,7 @@ function getautomation(automationame) {
   request(options, function (error, response) {
     if (error) throw new Error(error);
     console.log('automation name');
-    console.log(response.body);
+    console.log(response.body[0]);
     //console.log(response.body.RetrieveResponseMsg);
   });
 }
