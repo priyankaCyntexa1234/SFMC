@@ -73,7 +73,7 @@ app.post('/slackMessage',function(req,res){
   console.log('Trigger-word:'+req.body.user_name);
   console.log('Channel Id:'+req.body.channel_id);
 
-  var AuthResponse = await getacesstoken();
+  var AuthResponse =getacesstoken();
   var journeyText=req.body.text;
   var journey = journeyText.split(" ");
   //For journey
