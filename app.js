@@ -56,7 +56,7 @@ app.post('/slackmsg',function(req,res){
 };
 request(options, function (error, response) {
   if (error) throw new Error(error);
-  console.log(response.body.access_token);
+  console.log(response.body);
 });
 
 });
