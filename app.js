@@ -37,7 +37,7 @@ app.post('/slackmsg',function(req,res){
   const slug = str.split(' ');
   console.log(slug[2]);
   var access_token = getacesstoken();
-  
+  console.log(" access_token:"+ access_token);
 
 });
 
