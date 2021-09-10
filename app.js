@@ -58,8 +58,11 @@ request(options, function (error, response) {
   if (error) throw new Error(error);
  // console.log('--------authsecret---------');
   console.log(response.body);
+ console.log('--------authsecret---------');
+  console.log(response.body.access_token);
+ 
   func(slug[2]);
- // getautomation(slug[2],);
+ // getautomation(slug[2]);
 });
 
 });
