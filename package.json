@@ -36,6 +36,7 @@
     "jsonwebtoken": "^8.0.1",
     "request": "^2.81.0",
     "require": "^2.4.20",
-    "xml2js": "^0.4.23"
+    "xml2js": "^0.4.23",
+    "xml2json": "^0.12.0"
   }
 }
