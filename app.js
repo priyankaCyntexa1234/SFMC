@@ -11,6 +11,7 @@ var axios =require('axios');
 var routes      = require('./routes');
 var activity    = require('./routes/activity');
 var xml2js = require('xml2js');
+var parser = require('xml2json');
 
 var app = express();
 
