@@ -87,6 +87,19 @@ request(options, function (error, response) {
   var data1 = parser.toJson(response.body);
   console.log(data1);
   console.log(typeof data1);
+  xml2js.parseString(response.body, (err, result) => {
+    if(err) {
+        throw err;
+    }
+
+    // `result` is a JavaScript object
+    // convert it to a JSON string
+    const json = JSON.stringify(result, null, 4);
+
+    // log JSON string
+    console.log(json);
+    
+});
   
 });
 
