@@ -86,7 +86,7 @@ request(options, function (error, response) {
   console.log(response.body);
   var data1 = parser.toJson(response.body);
   console.log(data1);
-  console.log(data1[1]);
+  console.log(tyoepf(data1));
   
 });
 
