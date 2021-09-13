@@ -85,7 +85,7 @@ request(options, function (error, response) {
   console.log('response.body--------------------->');
   console.log(response.body);
   var data1 = parser.toJson(response.body);
-  console.log(parser.toJson(response.body));
+  console.log(data1);
   console.log(parser.toJson(response.body)["soap:Envelope"]);
   
 });
