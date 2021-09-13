@@ -97,7 +97,7 @@ request(options, function (error, response) {
     const json = JSON.stringify(result, null, 4);
 
     // log JSON string
-    console.log(json);
+    console.log(json[0]);
     
 });
   
