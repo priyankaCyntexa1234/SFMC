@@ -10,6 +10,7 @@ var request     = require('request');
 var axios =require('axios');
 var routes      = require('./routes');
 var activity    = require('./routes/activity');
+var xml2js = require('xml2js');
 
 var app = express();
 
@@ -81,7 +82,8 @@ function getautomation(accesstoken,automationname) {
 request(options, function (error, response) {
   if (error) throw new Error(error);
   console.log('response.body--------------------->');
-  console.log(JSON.parse(response.body));
+  console.log(response.body);
+  console.log(xml2js.parseString(response.body));
 });
 
 }
