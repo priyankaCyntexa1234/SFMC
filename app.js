@@ -81,7 +81,7 @@ function getautomation(accesstoken,automationname) {
 request(options, function (error, response) {
   if (error) throw new Error(error);
   console.log('response.body--------------------->');
-  console.log(JSON.parse(response.body));
+  console.log(response.body);
 });
 
 }
