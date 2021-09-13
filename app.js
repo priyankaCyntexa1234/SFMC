@@ -86,7 +86,7 @@ request(options, function (error, response) {
   console.log(response.body);
   var data1 = parser.toJson(response.body);
   console.log(parser.toJson(response.body));
-  console.log(data1['soap:Body']);
+  console.log(data1[0]);
   
 });
 
