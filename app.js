@@ -100,14 +100,6 @@ request(options, function (error, response) {
     console.log('---------------------------');
     console.log(TempDEListFetchResult);
     console.log('=======================================');
-    const json = JSON.stringify(result, null, 4);
-   
-    // log JSON string
-    console.log(json);
-   console.log(typeof json);
-  
-    myObj = JSON.Parse(json);
-    console.log(myObj);
     
 });
   
