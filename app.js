@@ -101,6 +101,9 @@ request(options, function (error, response) {
     // log JSON string
     console.log(json);
    console.log(typeof json);
+  
+    myObj = JSON.Parse(json);
+    console.log(myObj);
     
 });
   
