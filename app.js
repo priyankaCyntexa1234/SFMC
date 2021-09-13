@@ -97,6 +97,9 @@ request(options, function (error, response) {
     // `result` is a JavaScript object
     // convert it to a JSON string
     var TempDEListFetchResult = result['soap:Envelope']['soap:Body'][0]['RetrieveResponseMsg'][0]['Results'];
+    console.log('---------------------------');
+    console.log(TempDEListFetchResult);
+    console.log('=======================================');
     const json = JSON.stringify(result, null, 4);
    
     // log JSON string
