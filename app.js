@@ -99,7 +99,7 @@ request(options, function (error, response) {
     var TempDEListFetchResult = result['soap:Envelope']['soap:Body'][0]['RetrieveResponseMsg'][0]['Results'];
     console.log('---------------------------');
     console.log(TempDEListFetchResult);
-    console.log('=======================================');
+    console.log('======================================='+TempDEListFetchResult[0]['ObjectID']);
     
 });
   
